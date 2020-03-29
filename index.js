@@ -502,20 +502,41 @@ const main = async () => {
             
             //output directory
             output = (outDir+output)
-            await downloadEpisode(playlist['uri'], tmpOutput, false)
-            if (muxSubs && subtitles && subtitles.length) {
-              info('Muxing...')
-              await mux(subtitles, tmpOutput, output, debug)
-            } else {
-              info('Skipping mux...')
-            }
-            info(`Successfully downloaded "${output}"`)
-          } else {
-            await downloadEpisode(playlist['uri'], output)
-          }
+            //Read file
+            const fs = require('fs');
 
-          return
-        }
+            const data = fs.readFileSync('D:/Users/andre/Desktop/PinkBat/PinkDownloads.txt', 'UTF-8');
+            const lines = data.split(/\r?\n/);
+            const yesorno = 0;
+            //link start!
+            lines.forEach((line) => {
+              if (output = line) {
+                yesorno = 1
+              }
+
+            });
+            
+          if (yesorno = 0) {
+              
+            
+
+                console.log(line);
+                await downloadEpisode(playlist['uri'], tmpOutput, false)
+                if (muxSubs && subtitles && subtitles.length) {
+                  info('Muxing...')
+                  await mux(subtitles, tmpOutput, output, debug)
+                } else {
+                  info('Skipping mux...')
+                }
+                info(`Successfully downloaded "${output}"`)
+              } else {
+                await downloadEpisode(playlist['uri'], output)
+              }
+
+              return
+            }
+          }
+        
       }
       warn('The resolution specified was not found')
     } else {
