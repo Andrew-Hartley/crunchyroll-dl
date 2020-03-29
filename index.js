@@ -520,6 +520,7 @@ const main = async () => {
               if (oldoutput == lines) {
                 yesorno = 1
               }
+              //console.log(yesorno)
 
             });
             
@@ -542,6 +543,7 @@ const main = async () => {
 
               return
             }
+            console.log("is this stuped thing working??")
           }
         
       }
@@ -790,7 +792,7 @@ const parsem3u8 = (manifest) => {
   parser.end()
   return parser.manifest
 }
-
+//downloading for real?
 const downloadEpisode = (url, output, logDownload = true) => {
   return new Promise((resolve, reject) => {
     ffmpeg(url)
