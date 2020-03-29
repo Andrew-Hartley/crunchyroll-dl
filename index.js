@@ -538,10 +538,11 @@ const main = async () => {
               await downloadEpisode(playlist['uri'], output)
             }
 
-            return
+            //return
           }
           console.log("is this stuped thing working??")   
         }
+      
         
       }
       warn('The resolution specified was not found')
