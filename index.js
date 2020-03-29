@@ -508,9 +508,15 @@ const main = async () => {
             const data = fs.readFileSync('D:/Users/andre/Desktop/PinkBat/PinkDownloads.txt', 'UTF-8');
             const lines = data.split(/\r?\n/);
             var yesorno = 0;
+
+            console.log(data)
+            //console.log(lines)
+
             //link start!
-            lines.forEach((line) => {
-              if (output == line) {
+            lines.forEach((lines) => {
+              console.log(data)
+              //console.log(lines)
+              if (output == lines) {
                 yesorno = 1
               }
 
@@ -520,7 +526,7 @@ const main = async () => {
               
             
 
-                console.log(line);
+                //console.log(line);
                 await downloadEpisode(playlist['uri'], tmpOutput, false)
                 if (muxSubs && subtitles && subtitles.length) {
                   info('Muxing...')
