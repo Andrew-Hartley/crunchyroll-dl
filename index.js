@@ -507,16 +507,16 @@ const main = async () => {
 
             const data = fs.readFileSync('D:/Users/andre/Desktop/PinkBat/PinkDownloads.txt', 'UTF-8');
             const lines = data.split(/\r?\n/);
-            const yesorno = 0;
+            var yesorno = 0;
             //link start!
             lines.forEach((line) => {
-              if (output = line) {
+              if (output == line) {
                 yesorno = 1
               }
 
             });
             
-          if (yesorno = 0) {
+          if (yesorno == 0) {
               
             
 
