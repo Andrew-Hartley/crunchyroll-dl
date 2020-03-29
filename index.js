@@ -501,6 +501,7 @@ const main = async () => {
             const tmpOutput = path.join(tmpOutputDir, output)
             
             //output directory
+            var oldoutput = output
             output = (outDir+output)
             //Read file
             const fs = require('fs');
@@ -509,14 +510,14 @@ const main = async () => {
             const lines = data.split(/\r?\n/);
             var yesorno = 0;
 
-            console.log(data)
+            //console.log(data)
             //console.log(lines)
 
             //link start!
             lines.forEach((lines) => {
-              console.log(data)
-              //console.log(lines)
-              if (output == lines) {
+              console.log(oldoutput)
+              console.log(lines)
+              if (oldoutput == lines) {
                 yesorno = 1
               }
 
