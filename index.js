@@ -525,27 +525,23 @@ const main = async () => {
             });
             
           if (yesorno == 0) {
-              
-            
-
-                //console.log(line);
-                await downloadEpisode(playlist['uri'], tmpOutput, false)
-                if (muxSubs && subtitles && subtitles.length) {
-                  info('Muxing...')
-                  await mux(subtitles, tmpOutput, output, debug)
-                } else {
-                  info('Skipping mux...')
-                }
-                info(`Successfully downloaded "${output}"`)
+              //console.log(line);
+              await downloadEpisode(playlist['uri'], tmpOutput, false)
+              if (muxSubs && subtitles && subtitles.length) {
+                info('Muxing...')
+                await mux(subtitles, tmpOutput, output, debug)
               } else {
-                await downloadEpisode(playlist['uri'], output)
+                info('Skipping mux...')
               }
-
-              return
+              info(`Successfully downloaded "${output}"`)
+            } else {
+              await downloadEpisode(playlist['uri'], output)
             }
-            console.log("is this stuped thing working??")
-            
-          }return 
+
+            return
+          }
+          console.log("is this stuped thing working??")   
+        }
         
       }
       warn('The resolution specified was not found')
