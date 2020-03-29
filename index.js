@@ -544,8 +544,8 @@ const main = async () => {
               return
             }
             console.log("is this stuped thing working??")
-            return
-          } 
+            
+          }return 
         
       }
       warn('The resolution specified was not found')
