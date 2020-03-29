@@ -93,6 +93,11 @@ let argv = yargs
   .default('output', ':name Episode :ep [:resolution] [:subType]')
   .alias('o', 'output')
 
+  //output directory
+  .describe('outDir', 'The directory to dowload your files to.')
+  .default('outDir', '/')
+  //.alias('d', 'outDir')
+
   .describe('unblocked', 'Use the USA library of Crunchyroll')
   .boolean('unblocked')
 
@@ -114,7 +119,7 @@ let expires = new Date()
 let authed = false
 let premium = false
 
-const { input, username, password, quality, unblocked, debug, list, tmpDir, vilos, subsOnly } = argv
+const { input, username, password, quality, unblocked, debug, list, tmpDir, outDir, vilos, subsOnly } = argv
 let { subType, noCleanup } = argv
 
 const autoselectQuality = !argv['dont-autoselect-quality']
@@ -494,7 +499,9 @@ const main = async () => {
             mkdirp.sync(tmpOutputDir)
 
             const tmpOutput = path.join(tmpOutputDir, output)
-
+            
+            //output directory
+            output = (outDir+output)
             await downloadEpisode(playlist['uri'], tmpOutput, false)
             if (muxSubs && subtitles && subtitles.length) {
               info('Muxing...')
