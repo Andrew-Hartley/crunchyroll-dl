@@ -509,9 +509,13 @@ const main = async () => {
           // None of this code below inside the for loop will run if continue is called on line 505
 
           // somwehere here append `output` to download.txt so it doen't download a second time
-          // i cant spell
-
-          
+          fs.appendFile('D:/Users/andre/Desktop/PinkBat/downloads.txt', '\n'+filename, function (err) {
+            if (err) {
+              // append failed
+            } else {
+              // done
+            }
+          })
 
           output = path.join(outDir, output); // convert output to be relative to outDir
 
